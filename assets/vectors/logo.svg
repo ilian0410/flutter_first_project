@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="200"
+     height="200"
+     viewBox="0 0 200 200">
+
+  <!-- Sac -->
+  <rect
+      x="45"
+      y="60"
+      width="110"
+      height="105"
+      rx="18"
+      fill="white"/>
+
+  <!-- Poignée -->
+  <path
+      d="M70 60
+         C70 30 130 30 130 60"
+      stroke="white"
+      stroke-width="10"
+      fill="none"
+      stroke-linecap="round"/>
+
+  <!-- Lettre S -->
+  <text
+      x="100"
+      y="132"
+      text-anchor="middle"
+      font-size="70"
+      font-family="Arial"
+      font-weight="bold"
+      fill="#7B5CF4">
+      S
+  </text>
+
+</svg>

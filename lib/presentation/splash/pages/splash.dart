@@ -1,5 +1,7 @@
+import 'package:final_flutter_project/core/configs/assets/app_vectors.dart';
 import 'package:final_flutter_project/core/configs/theme/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -8,14 +10,24 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primary,
-      body: Column(
-        children: [
-             
-             CircularProgressIndicator(
-              color: Colors.white
-              )
+      body: Center(
+        child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+    SvgPicture.asset(AppVectors.appLogo, height: 220, width: 220),
+        const SizedBox(height: 20),
+
+            SizedBox(
+  width: 28,
+  height: 28,
+         child: CircularProgressIndicator(
+           strokeWidth: 2.5,
+    color: Colors.white,
+              ),
+            ),
             
-        ],
+          ],
+        ),
       ),
     );
   }
