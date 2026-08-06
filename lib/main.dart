@@ -1,3 +1,4 @@
+import 'package:final_flutter_project/core/configs/theme/app_theme.dart';
 import 'package:final_flutter_project/presentation/splash/bloc/splash_cubit.dart';
 import 'package:final_flutter_project/presentation/splash/pages/splash.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        ),
+        theme: AppTheme.appTheme,
         home: const SplashPage(),
       ),
     );

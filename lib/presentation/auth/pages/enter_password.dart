@@ -1,10 +1,8 @@
-import 'package:final_flutter_project/common/helpr/navigator/app_navigator.dart';
-import 'package:final_flutter_project/presentation/auth/pages/enter_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class EnterPasswordPage extends StatelessWidget {
+  const EnterPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +13,11 @@ class SigninPage extends StatelessWidget {
           children: [
             _signin(context),
             SizedBox(height: 20),
-            _email(context),
+            _password(context),
             SizedBox(height: 20),
-            _continueboutton(context),
+            _continueButton(),
             SizedBox(height: 20),
-            _createAccount(context),
+            _forgotPassword(context),
           ],
         ),
       ),
@@ -33,24 +31,23 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _email(BuildContext context) {
+  Widget _password(BuildContext context) {
     return TextField(
       style: const TextStyle(color: Color(0xFF1F2937)),
       decoration: InputDecoration(
-        hintText: 'Enter Your Email',
-        prefixIcon: const Icon(Icons.email_outlined),
+        hintText: 'Enter Your Password',
+        prefixIcon: const Icon(Icons.lock_outlined),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }
 
-  Widget _continueboutton(BuildContext context) {
+  Widget _continueButton() {
     return SizedBox(
       width: double.infinity,
       height: 55,
       child: ElevatedButton(
         onPressed: () {
-          AppNavigator.pushReplacement(context, const EnterPasswordPage());
         },
         child: const Text(
           'Continue',
@@ -60,16 +57,15 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  RichText _createAccount(BuildContext context) {
+  RichText _forgotPassword(BuildContext context) {
     return RichText(
       text: TextSpan(
         children: [
-          TextSpan(text: 'Do you have an account? '),
+          TextSpan(text: 'Forgot your password? '),
           TextSpan(
-            text: 'Create one',
+            text: 'Reset it',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                // Handle create account tap
               },
             style: const TextStyle(
               color: Colors.blue,
