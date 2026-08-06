@@ -1,10 +1,16 @@
 import 'package:final_flutter_project/core/configs/theme/app_theme.dart';
+import 'package:final_flutter_project/firebase_options.dart';
 import 'package:final_flutter_project/presentation/splash/bloc/splash_cubit.dart';
 import 'package:final_flutter_project/presentation/splash/pages/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(const MyApp());
 }
 
