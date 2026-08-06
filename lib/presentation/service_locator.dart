@@ -1,6 +1,7 @@
 import 'package:final_flutter_project/data/auth/repository/auth_repository_implementation.dart';
 import 'package:final_flutter_project/data/auth/source/auth_firebase_service.dart';
 import 'package:final_flutter_project/domain/auth/repository/auth.dart';
+import 'package:final_flutter_project/domain/auth/usecases/signup.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -15,5 +16,7 @@ sl.registerSingleton<AuthRepository>(AuthRepositoryImplementation());
 
 
 // Use cases
-  
+  sl.registerSingleton<SignupUseCase>(
+    SignupUseCase()
+    );
 }

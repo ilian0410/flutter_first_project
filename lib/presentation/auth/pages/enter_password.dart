@@ -1,6 +1,7 @@
 import 'package:final_flutter_project/common/helpr/navigator/app_navigator.dart';
 import 'package:final_flutter_project/common/helpr/navigator/widgets/button/basic_app.dart';
 import 'package:final_flutter_project/presentation/auth/pages/forgot_password.dart';
+import 'package:final_flutter_project/presentation/auth/pages/gender_and_age_selection.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,7 @@ class EnterPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const BasicAppbar(
-          title: const Text('Enter Password'),
-        ),
+      appBar: const BasicAppbar(title: const Text('Enter Password')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
         child: Column(
@@ -21,7 +20,7 @@ class EnterPasswordPage extends StatelessWidget {
             SizedBox(height: 20),
             _password(context),
             SizedBox(height: 20),
-            _continueButton(),
+            _continueButton(context),
             SizedBox(height: 20),
             _forgotPassword(context),
           ],
@@ -48,12 +47,18 @@ class EnterPasswordPage extends StatelessWidget {
     );
   }
 
-  Widget _continueButton() {
+  Widget _continueButton(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: 55,
       child: ElevatedButton(
         onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const GenderAndAgeSelectionPage(),
+            ),
+          );
         },
         child: const Text(
           'Continue',
@@ -72,8 +77,7 @@ class EnterPasswordPage extends StatelessWidget {
             text: 'Reset it',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                            AppNavigator.push(context, const ForgotPasswordPage());
-
+                AppNavigator.push(context, const ForgotPasswordPage());
               },
             style: const TextStyle(
               color: Colors.blue,
