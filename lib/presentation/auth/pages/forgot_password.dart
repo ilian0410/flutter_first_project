@@ -1,18 +1,15 @@
 import 'package:final_flutter_project/common/helpr/navigator/app_navigator.dart';
 import 'package:final_flutter_project/common/helpr/navigator/widgets/button/basic_app.dart';
 import 'package:final_flutter_project/presentation/auth/pages/enter_password.dart';
-import 'package:final_flutter_project/presentation/auth/pages/signup.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class ForgotPasswordPage extends StatelessWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BasicAppbar(
-        hideBackButton: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
@@ -23,8 +20,7 @@ class SigninPage extends StatelessWidget {
             _email(context),
             SizedBox(height: 20),
             _continueboutton(context),
-            SizedBox(height: 20),
-            _createAccount(context),
+            
           ],
         ),
       ),
@@ -33,7 +29,7 @@ class SigninPage extends StatelessWidget {
 
   Widget _signin(BuildContext context) {
     return const Text(
-      'Sign in',
+      'Forgot Password',
       style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
     );
   }
@@ -65,24 +61,5 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  RichText _createAccount(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(text: 'Do you have an account? '),
-          TextSpan(
-            text: 'Create one',
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-AppNavigator.push(context, const SignupPage());
-              },
-            style: const TextStyle(
-              color: Colors.blue,
-              decoration: TextDecoration.underline,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  
 }

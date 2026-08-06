@@ -1,18 +1,17 @@
 import 'package:final_flutter_project/common/helpr/navigator/app_navigator.dart';
 import 'package:final_flutter_project/common/helpr/navigator/widgets/button/basic_app.dart';
 import 'package:final_flutter_project/presentation/auth/pages/enter_password.dart';
-import 'package:final_flutter_project/presentation/auth/pages/signup.dart';
+import 'package:final_flutter_project/presentation/auth/pages/signin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const BasicAppbar(
-        hideBackButton: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
@@ -20,7 +19,13 @@ class SigninPage extends StatelessWidget {
           children: [
             _signin(context),
             SizedBox(height: 20),
+            _firstName(context),
+            SizedBox(height: 20),
+            _lastName(context),
+            SizedBox(height: 20),
             _email(context),
+            SizedBox(height: 20),
+            _password(context),
             SizedBox(height: 20),
             _continueboutton(context),
             SizedBox(height: 20),
@@ -33,21 +38,51 @@ class SigninPage extends StatelessWidget {
 
   Widget _signin(BuildContext context) {
     return const Text(
-      'Sign in',
+      'Create Account',
       style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
     );
   }
-
+Widget _firstName(BuildContext context) {
+    return TextField(
+      style: const TextStyle(color: Color( 0xFFF5F5F7)),
+      decoration: InputDecoration(
+        hintText: 'Enter Your First Name',
+        prefixIcon: const Icon(Icons.person_outlined),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+    );
+  }
+Widget _lastName(BuildContext context) {
+    return TextField(
+      style: const TextStyle(color: Color( 0xFFF5F5F7)),
+      decoration: InputDecoration(
+        hintText: 'Enter Your Last Name',
+        prefixIcon: const Icon(Icons.person_outlined),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+    );
+  }
   Widget _email(BuildContext context) {
     return TextField(
       style: const TextStyle(color: Color(0xFFF5F5F7)),
       decoration: InputDecoration(
-        hintText: 'Enter Your Email',
+        hintText: 'Enter Your Email adress',
         prefixIcon: const Icon(Icons.email_outlined),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }
+  Widget _password(BuildContext context) {
+    return TextField(
+      style: const TextStyle(color: Color(0xFFF5F5F7)),
+      decoration: InputDecoration(
+        hintText: 'Enter Your Password',
+        prefixIcon: const Icon(Icons.lock_outlined),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+    );
+  }
+
 
   Widget _continueboutton(BuildContext context) {
     return SizedBox(
@@ -71,10 +106,10 @@ class SigninPage extends StatelessWidget {
         children: [
           TextSpan(text: 'Do you have an account? '),
           TextSpan(
-            text: 'Create one',
+            text: 'Sign in',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-AppNavigator.push(context, const SignupPage());
+AppNavigator.pushReplacement(context, const SigninPage());
               },
             style: const TextStyle(
               color: Colors.blue,

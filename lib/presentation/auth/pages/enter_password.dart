@@ -1,3 +1,6 @@
+import 'package:final_flutter_project/common/helpr/navigator/app_navigator.dart';
+import 'package:final_flutter_project/common/helpr/navigator/widgets/button/basic_app.dart';
+import 'package:final_flutter_project/presentation/auth/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +10,11 @@ class EnterPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: const BasicAppbar(
+          title: const Text('Enter Password'),
+        ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 80),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
         child: Column(
           children: [
             _signin(context),
@@ -33,7 +39,7 @@ class EnterPasswordPage extends StatelessWidget {
 
   Widget _password(BuildContext context) {
     return TextField(
-      style: const TextStyle(color: Color(0xFF1F2937)),
+      style: const TextStyle(color: Color(0xFFF5F5F7)),
       decoration: InputDecoration(
         hintText: 'Enter Your Password',
         prefixIcon: const Icon(Icons.lock_outlined),
@@ -66,6 +72,8 @@ class EnterPasswordPage extends StatelessWidget {
             text: 'Reset it',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
+                            AppNavigator.push(context, const ForgotPasswordPage());
+
               },
             style: const TextStyle(
               color: Colors.blue,
